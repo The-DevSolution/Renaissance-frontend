@@ -1,5 +1,6 @@
 # Renaissance Frontend - Decentralized Football Fan Experience
-
+JOIN OUR TELEGRAM CHANNEL FOR EASY COMMUNICATION 
+https://t.me/+h1HGgfpGn_5hYTVk
 The frontend application for Renaissance, a revolutionary platform where football fans can immerse themselves in real-time team updates, exclusive player content, and transparent decentralized betting powered by Starknet.
 
 ## 🏗️ Architecture Overview
