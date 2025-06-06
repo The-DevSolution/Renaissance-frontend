@@ -1,519 +1,362 @@
-import React, { useState } from "react";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
 import {
-  Check,
-  Star,
-  ArrowRight,
-  Menu,
-  X,
-  Zap,
-  Shield,
-  Users,
-  BarChart3,
-  Globe,
-  Smartphone,
-} from "lucide-react";
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { RenaissanceLogo } from "@/components/renaissance-logo";
+import { Header } from "@/app/header";
 
-export default function LandingPage() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
-  const features = [
-    {
-      icon: <Zap className="w-8 h-8 text-blue-500" />,
-      title: "Lightning Fast Performance",
-      description:
-        "Experience blazing-fast speeds with our optimized infrastructure and cutting-edge technology.",
-    },
-    {
-      icon: <Shield className="w-8 h-8 text-green-500" />,
-      title: "Enterprise Security",
-      description:
-        "Bank-level security with end-to-end encryption, SOC2 compliance, and advanced threat protection.",
-    },
-    {
-      icon: <Users className="w-8 h-8 text-purple-500" />,
-      title: "Team Collaboration",
-      description:
-        "Seamlessly collaborate with your team using real-time updates, comments, and shared workspaces.",
-    },
-    {
-      icon: <BarChart3 className="w-8 h-8 text-orange-500" />,
-      title: "Advanced Analytics",
-      description:
-        "Get deep insights with comprehensive analytics, custom reports, and data visualization tools.",
-    },
-    {
-      icon: <Globe className="w-8 h-8 text-cyan-500" />,
-      title: "Global Scale",
-      description:
-        "Deploy worldwide with our global CDN, multi-region support, and 99.9% uptime guarantee.",
-    },
-    {
-      icon: <Smartphone className="w-8 h-8 text-pink-500" />,
-      title: "Mobile First",
-      description:
-        "Native mobile apps and responsive design ensure perfect experience across all devices.",
-    },
-  ];
-
-  const pricingPlans = [
-    {
-      name: "Free",
-      price: "$0",
-      period: "forever",
-      description: "Perfect for getting started",
-      features: [
-        "Up to 3 projects",
-        "Basic analytics",
-        "Community support",
-        "1GB storage",
-        "Standard templates",
-      ],
-      buttonText: "Get Started Free",
-      buttonStyle: "bg-gray-900 hover:bg-gray-800 text-white",
-      popular: false,
-    },
-    {
-      name: "Premium",
-      price: "$29",
-      period: "per month",
-      description: "For growing teams and businesses",
-      features: [
-        "Unlimited projects",
-        "Advanced analytics & reports",
-        "Priority support",
-        "100GB storage",
-        "Premium templates",
-        "Team collaboration",
-        "API access",
-        "Custom integrations",
-      ],
-      buttonText: "Start Premium Trial",
-      buttonStyle:
-        "bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white",
-      popular: true,
-    },
-  ];
-
+export default function Home() {
   return (
-    <div className="min-h-screen bg-white">
-      {/* Navigation */}
-      <nav className="bg-white/80 backdrop-blur-md border-b border-gray-100 sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <div className="flex items-center">
-              <div className="flex-shrink-0">
-                <div className="w-10 h-10 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
-                  <span className="text-white font-bold text-xl">P</span>
-                </div>
-              </div>
-              <div className="hidden md:block ml-4">
-                <div className="flex items-baseline space-x-8">
-                  <a
-                    href="#features"
-                    className="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors"
-                  >
-                    Features
-                  </a>
-                  <a
-                    href="#pricing"
-                    className="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors"
-                  >
-                    Pricing
-                  </a>
-                  <a
-                    href="#about"
-                    className="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors"
-                  >
-                    About
-                  </a>
-                  <a
-                    href="#contact"
-                    className="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors"
-                  >
-                    Contact
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            <div className="hidden md:flex items-center space-x-4">
-              <button className="text-gray-700 hover:text-blue-600 px-4 py-2 text-sm font-medium transition-colors">
-                Sign In
-              </button>
-              <button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-6 py-2 rounded-lg text-sm font-medium transition-all transform hover:scale-105">
-                Get Started
-              </button>
-            </div>
-
-            <div className="md:hidden">
-              <button
-                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="text-gray-700 hover:text-blue-600 p-2"
-              >
-                {mobileMenuOpen ? (
-                  <X className="w-6 h-6" />
-                ) : (
-                  <Menu className="w-6 h-6" />
-                )}
-              </button>
-            </div>
-          </div>
-        </div>
-
-        {/* Mobile menu */}
-        {mobileMenuOpen && (
-          <div className="md:hidden bg-white border-t border-gray-100">
-            <div className="px-2 pt-2 pb-3 space-y-1">
-              <a
-                href="#features"
-                className="block px-3 py-2 text-gray-700 hover:text-blue-600 text-base font-medium"
-              >
-                Features
-              </a>
-              <a
-                href="#pricing"
-                className="block px-3 py-2 text-gray-700 hover:text-blue-600 text-base font-medium"
-              >
-                Pricing
-              </a>
-              <a
-                href="#about"
-                className="block px-3 py-2 text-gray-700 hover:text-blue-600 text-base font-medium"
-              >
-                About
-              </a>
-              <a
-                href="#contact"
-                className="block px-3 py-2 text-gray-700 hover:text-blue-600 text-base font-medium"
-              >
-                Contact
-              </a>
-              <div className="border-t border-gray-100 pt-4 pb-3">
-                <button className="block w-full text-left px-3 py-2 text-gray-700 hover:text-blue-600 text-base font-medium">
-                  Sign In
-                </button>
-                <button className="mt-2 w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white px-4 py-2 rounded-lg font-medium">
-                  Get Started
-                </button>
-              </div>
-            </div>
-          </div>
-        )}
-      </nav>
-
-      {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-blue-50 via-white to-purple-50">
-        <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32">
-          <div className="text-center">
-            <div className="flex justify-center mb-8">
-              <div className="flex items-center space-x-2 bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium">
-                <Star className="w-4 h-4" />
-                <span>Trusted by 10,000+ teams worldwide</span>
-              </div>
-            </div>
-
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-6 leading-tight">
-              Build the Future
-              <span className="block bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                Faster Than Ever
-              </span>
-            </h1>
-
-            <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed">
-              Transform your ideas into reality with our powerful platform.
-              Streamline workflows, boost productivity, and scale your business
-              with enterprise-grade tools designed for modern teams.
-            </p>
-
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <button className="group bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center">
-                Get Started Free
-                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </button>
-              <button className="group border-2 border-gray-300 hover:border-gray-400 text-gray-700 hover:text-gray-900 px-8 py-4 rounded-lg font-semibold text-lg transition-all flex items-center">
-                Learn More
-                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </button>
-            </div>
-
-            <div className="mt-12 text-sm text-gray-500">
-              No credit card required • Free 14-day trial • Cancel anytime
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Features Section */}
-      <section id="features" className="py-20 lg:py-32 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6">
-              Everything You Need to
-              <span className="block text-blue-600">Succeed</span>
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Powerful features designed to help you work smarter, collaborate
-              better, and achieve more.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {features.map((feature, index) => (
-              <div
-                key={index}
-                className="group p-8 bg-white rounded-2xl border border-gray-100 hover:border-gray-200 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2"
-              >
-                <div className="flex items-center justify-center w-16 h-16 bg-gray-50 rounded-2xl mb-6 group-hover:scale-110 transition-transform">
-                  {feature.icon}
-                </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-4">
-                  {feature.title}
-                </h3>
-                <p className="text-gray-600 leading-relaxed">
-                  {feature.description}
+    <div className="flex min-h-screen flex-col">
+      <Header showAuthButtons={true} />
+      <main className="flex-1">
+        <section className="w-full py-12 md:py-24 lg:py-32 bg-gradient-to-b from-background to-muted">
+          <div className="container px-4 md:px-6">
+            <div className="flex flex-col items-center justify-center space-y-4 text-center">
+              <div className="space-y-2">
+                <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl">
+                  Follow Your Favorite Teams on Starknet
+                </h1>
+                <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl">
+                  Get live scores, match notifications, and exclusive content
+                  for the teams you support with reduced gas fees.
                 </p>
               </div>
-            ))}
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Button size="lg" className="w-full sm:w-auto" asChild>
+                  <Link href="/signup">Get Started</Link>
+                </Button>
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="w-full sm:w-auto"
+                  asChild
+                >
+                  <Link href="#features">Learn More</Link>
+                </Button>
+              </div>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Pricing Section */}
-      <section id="pricing" className="py-20 lg:py-32 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6">
-              Simple, Transparent
-              <span className="block text-blue-600">Pricing</span>
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Choose the plan that's right for you. Start free and upgrade as
-              you grow.
-            </p>
+        <section id="features" className="w-full py-12 md:py-24 lg:py-32">
+          <div className="container px-4 md:px-6">
+            <div className="flex flex-col items-center justify-center space-y-4 text-center">
+              <div className="space-y-2">
+                <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+                  Key Features
+                </h2>
+                <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl">
+                  Everything you need to follow your favorite football teams.
+                </p>
+              </div>
+            </div>
+            <div className="mx-auto grid max-w-5xl grid-cols-1 gap-6 md:grid-cols-3 lg:gap-8 mt-8">
+              <Card>
+                <CardHeader>
+                  <CardTitle>Team Selection</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p>
+                    Support up to 3 teams from different leagues and get
+                    personalized updates.
+                  </p>
+                </CardContent>
+              </Card>
+              <Card>
+                <CardHeader>
+                  <CardTitle>Live Scores</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p>
+                    Automatic live score updates for all the teams you follow.
+                  </p>
+                </CardContent>
+              </Card>
+              <Card>
+                <CardHeader>
+                  <CardTitle>Match Notifications</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p>
+                    Never miss a match with timely notifications for your
+                    favorite teams.
+                  </p>
+                </CardContent>
+              </Card>
+              <Card>
+                <CardHeader>
+                  <CardTitle>STRK Staking</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p>
+                    Stake your STRK tokens on match outcomes and earn rewards.
+                  </p>
+                </CardContent>
+              </Card>
+              <Card>
+                <CardHeader>
+                  <CardTitle>NFT Player Cards</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p>
+                    Collect, trade, and showcase digital player cards on the
+                    blockchain.
+                  </p>
+                </CardContent>
+              </Card>
+              <Card>
+                <CardHeader>
+                  <CardTitle>AI Match Predictions</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p>
+                    Get intelligent match predictions powered by advanced AI
+                    analysis.
+                  </p>
+                </CardContent>
+              </Card>
+            </div>
           </div>
+        </section>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
-            {pricingPlans.map((plan, index) => (
-              <div
-                key={index}
-                className={`relative p-8 bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 ${
-                  plan.popular
-                    ? "ring-2 ring-blue-500 scale-105"
-                    : "border border-gray-200"
-                }`}
-              >
-                {plan.popular && (
-                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                    <span className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-2 rounded-full text-sm font-semibold">
-                      Most Popular
-                    </span>
-                  </div>
-                )}
-
-                <div className="text-center mb-8">
-                  <h3 className="text-2xl font-bold text-gray-900 mb-2">
-                    {plan.name}
-                  </h3>
-                  <p className="text-gray-600 mb-4">{plan.description}</p>
-                  <div className="flex items-baseline justify-center">
-                    <span className="text-5xl font-bold text-gray-900">
-                      {plan.price}
-                    </span>
-                    <span className="text-gray-600 ml-2">/{plan.period}</span>
-                  </div>
-                </div>
-
-                <ul className="space-y-4 mb-8">
-                  {plan.features.map((feature, featureIndex) => (
-                    <li key={featureIndex} className="flex items-center">
-                      <Check className="w-5 h-5 text-green-500 mr-3 flex-shrink-0" />
-                      <span className="text-gray-700">{feature}</span>
+        <section
+          id="premium"
+          className="w-full py-12 md:py-24 lg:py-32 bg-muted"
+        >
+          <div className="container px-4 md:px-6">
+            <div className="flex flex-col items-center justify-center space-y-4 text-center">
+              <div className="space-y-2">
+                <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+                  Premium Access
+                </h2>
+                <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl">
+                  Unlock exclusive content and features with our premium
+                  subscription.
+                </p>
+              </div>
+            </div>
+            <div className="mx-auto grid max-w-5xl grid-cols-1 gap-6 md:grid-cols-2 lg:gap-8 mt-8">
+              <Card>
+                <CardHeader>
+                  <CardTitle>Free</CardTitle>
+                  <CardDescription>Basic access for all users</CardDescription>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <ul className="space-y-2">
+                    <li className="flex items-center">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className="mr-2 h-4 w-4 text-primary"
+                      >
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                      </svg>
+                      <span>Support up to 3 teams</span>
                     </li>
-                  ))}
-                </ul>
-
-                <button
-                  className={`w-full py-4 rounded-lg font-semibold transition-all transform hover:scale-105 ${plan.buttonStyle}`}
-                >
-                  {plan.buttonText}
-                </button>
-              </div>
-            ))}
+                    <li className="flex items-center">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className="mr-2 h-4 w-4 text-primary"
+                      >
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                      </svg>
+                      <span>Basic match notifications</span>
+                    </li>
+                    <li className="flex items-center">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className="mr-2 h-4 w-4 text-primary"
+                      >
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                      </svg>
+                      <span>Live scores for followed teams</span>
+                    </li>
+                    <li className="flex items-center">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className="mr-2 h-4 w-4 text-primary"
+                      >
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                      </svg>
+                      <span>Basic STRK staking</span>
+                    </li>
+                  </ul>
+                </CardContent>
+                <CardFooter>
+                  <Button variant="outline" className="w-full">
+                    Sign Up Free
+                  </Button>
+                </CardFooter>
+              </Card>
+              <Card className="border-primary">
+                <CardHeader>
+                  <CardTitle>Premium</CardTitle>
+                  <CardDescription>
+                    Enhanced features for true fans
+                  </CardDescription>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <ul className="space-y-2">
+                    <li className="flex items-center">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className="mr-2 h-4 w-4 text-primary"
+                      >
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                      </svg>
+                      <span>All Free features</span>
+                    </li>
+                    <li className="flex items-center">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className="mr-2 h-4 w-4 text-primary"
+                      >
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                      </svg>
+                      <span>Advanced AI match predictions</span>
+                    </li>
+                    <li className="flex items-center">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className="mr-2 h-4 w-4 text-primary"
+                      >
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                      </svg>
+                      <span>Exclusive NFT player cards</span>
+                    </li>
+                    <li className="flex items-center">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className="mr-2 h-4 w-4 text-primary"
+                      >
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                      </svg>
+                      <span>Reduced gas fees for transactions</span>
+                    </li>
+                    <li className="flex items-center">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className="mr-2 h-4 w-4 text-primary"
+                      >
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                      </svg>
+                      <span>Advanced player and team statistics</span>
+                    </li>
+                  </ul>
+                </CardContent>
+                <CardFooter>
+                  <Button className="w-full">Subscribe Now</Button>
+                </CardFooter>
+              </Card>
+            </div>
           </div>
-
-          <div className="text-center mt-12">
-            <p className="text-gray-600">
-              Need a custom solution?
-              <a
-                href="#contact"
-                className="text-blue-600 hover:text-blue-700 font-semibold ml-1"
-              >
-                Contact our sales team
-              </a>
+        </section>
+      </main>
+      <footer className="w-full border-t py-6 md:py-0">
+        <div className="container flex flex-col items-center justify-between gap-4 md:h-16 md:flex-row">
+          <div className="flex items-center gap-2">
+            <RenaissanceLogo className="h-6 w-6" />
+            <p className="text-sm text-muted-foreground">
+              © 2025 Renaissance. All rights reserved.
             </p>
           </div>
-        </div>
-      </section>
-
-      {/* Footer */}
-      <footer className="bg-gray-900 text-white py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
-            <div>
-              <div className="flex items-center mb-6">
-                <div className="w-10 h-10 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg flex items-center justify-center mr-3">
-                  <span className="text-white font-bold text-xl">P</span>
-                </div>
-                <span className="text-xl font-bold">Platform</span>
-              </div>
-              <p className="text-gray-400 leading-relaxed">
-                Empowering teams to build the future with cutting-edge tools and
-                seamless collaboration.
-              </p>
-            </div>
-
-            <div>
-              <h4 className="text-lg font-semibold mb-6">Product</h4>
-              <ul className="space-y-3">
-                <li>
-                  <a
-                    href="#features"
-                    className="text-gray-400 hover:text-white transition-colors"
-                  >
-                    Features
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#pricing"
-                    className="text-gray-400 hover:text-white transition-colors"
-                  >
-                    Pricing
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#integrations"
-                    className="text-gray-400 hover:text-white transition-colors"
-                  >
-                    Integrations
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#api"
-                    className="text-gray-400 hover:text-white transition-colors"
-                  >
-                    API
-                  </a>
-                </li>
-              </ul>
-            </div>
-
-            <div>
-              <h4 className="text-lg font-semibold mb-6">Company</h4>
-              <ul className="space-y-3">
-                <li>
-                  <a
-                    href="#about"
-                    className="text-gray-400 hover:text-white transition-colors"
-                  >
-                    About Us
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#careers"
-                    className="text-gray-400 hover:text-white transition-colors"
-                  >
-                    Careers
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#blog"
-                    className="text-gray-400 hover:text-white transition-colors"
-                  >
-                    Blog
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#press"
-                    className="text-gray-400 hover:text-white transition-colors"
-                  >
-                    Press
-                  </a>
-                </li>
-              </ul>
-            </div>
-
-            <div>
-              <h4 className="text-lg font-semibold mb-6">Support</h4>
-              <ul className="space-y-3">
-                <li>
-                  <a
-                    href="#help"
-                    className="text-gray-400 hover:text-white transition-colors"
-                  >
-                    Help Center
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#contact"
-                    className="text-gray-400 hover:text-white transition-colors"
-                  >
-                    Contact Us
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#documentation"
-                    className="text-gray-400 hover:text-white transition-colors"
-                  >
-                    Documentation
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#status"
-                    className="text-gray-400 hover:text-white transition-colors"
-                  >
-                    System Status
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <div className="border-t border-gray-800 pt-8">
-            <div className="flex flex-col md:flex-row justify-between items-center">
-              <p className="text-gray-400 text-sm">
-                © 2025 Platform. All rights reserved.
-              </p>
-              <div className="flex space-x-6 mt-4 md:mt-0">
-                <a
-                  href="#privacy"
-                  className="text-gray-400 hover:text-white text-sm transition-colors"
-                >
-                  Privacy Policy
-                </a>
-                <a
-                  href="#terms"
-                  className="text-gray-400 hover:text-white text-sm transition-colors"
-                >
-                  Terms of Service
-                </a>
-                <a
-                  href="#cookies"
-                  className="text-gray-400 hover:text-white text-sm transition-colors"
-                >
-                  Cookie Policy
-                </a>
-              </div>
-            </div>
+          <div className="flex items-center gap-4">
+            <Link
+              href="/terms"
+              className="text-sm text-muted-foreground hover:underline underline-offset-4"
+            >
+              Terms
+            </Link>
+            <Link
+              href="/privacy"
+              className="text-sm text-muted-foreground hover:underline underline-offset-4"
+            >
+              Privacy
+            </Link>
+            <Link
+              href="/contact"
+              className="text-sm text-muted-foreground hover:underline underline-offset-4"
+            >
+              Contact
+            </Link>
           </div>
         </div>
       </footer>
