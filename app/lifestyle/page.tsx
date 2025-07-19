@@ -5,11 +5,11 @@ import Link from "next/link"
 import { Button } from "app/components/ui/button"
 import { Calendar, Home, Search, Settings, User, Newspaper } from "lucide-react"
 import { Separator } from "app/components/ui/separator"
-import { Header } from "/app/header"
+import { Header } from "../app/header"
 import { playerLifestyleNews } from "@/components/player-lifestyle-news"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "app/components/ui/card"
 import { Badge } from "app/components/ui/badge"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "../components/ui/tabs"
 
 export default function LifestylePage() {
   const [isPremiumUser, setIsPremiumUser] = useState(false)
