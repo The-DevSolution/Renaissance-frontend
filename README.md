@@ -23,7 +23,7 @@ Renaissance is built as a **microservices architecture** with three main reposit
 - 🔄 Progressive Web App (PWA) capabilities
 
 ### Web3 Integration
-- 🔗 Starknet wallet connection (ArgentX, Braavos)
+- 🔗 Stellar wallet connection (lobster)
 - 📝 Smart contract interactions for betting
 - 🔐 Zero-knowledge proof verification
 - 💰 Token balance and transaction management
@@ -50,9 +50,7 @@ Renaissance is built as a **microservices architecture** with three main reposit
 - **Radix UI** - Headless UI components
 
 ### Web3 & Blockchain
-- **Starknet.js** - Starknet JavaScript SDK
-- **get-starknet** - Wallet connection library
-- **starknet-react** - React hooks for Starknet
+
 
 ### State Management & Data
 - **Zustand** - Lightweight state management
